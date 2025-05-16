@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cộng Đồng - Bảo Vệ Động Vật</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-transition"></div>
+    <a href="page2.html" class="next-btn page-transition-link">❯</a>
+    <video autoplay muted loop class="background-video">
+        <source src="https://cdn.pixabay.com/video/2023/11/12/188861-883827797_large.mp4" type="video/mp4">
+    </video>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="asset/image/logoanm.webp" alt="WLA" class="logo-img">
+                </a>
+                <b><h1 style="color: black;">WLA</h1></b>
+            </div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.html#mission" class="scroll-link" data-target="mission">Về Chúng Tôi</a></li>
+                <li><a href="index.html#featured-animals" class="scroll-link" data-target="featured-animals">Động Vật</a></li>
+                <li><a href="congdong.html" class="active">Cộng Đồng</a></li>
+                <li><a href="donate.html">Quyên Góp</a></li>
+                <li><a href="lienhe.html">Liên Hệ</a></li>
+            </ul>
+        </nav>
+        <div class="hero animate-on-scroll">
+            <h1>Cộng Đồng Bảo Vệ Động Vật</h1>
+            <p>Chia sẻ câu chuyện, tham gia thảo luận, và cùng nhau hành động vì động vật hoang dã!</p>
+            <a href="#post-form" class="cta-button scroll-link" data-target="post-form">Đăng Bài Ngay</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="community-posts" class="animate-on-scroll">
+            <h2>Chia Sẻ Từ Cộng Đồng</h2>
+            <div id="post-form" class="post-form animate-on-scroll">
+                <h3>Đăng Bài Mới</h3>
+                <form id="new-post-form">
+                    <input type="text" id="post-title" placeholder="Tiêu đề bài đăng" required>
+                    <textarea id="post-content" placeholder="Nội dung bài đăng" required></textarea>
+                    <input type="file" id="post-image" accept="image/*">
+                    <button type="submit" class="cta-button">Đăng Bài</button>
+                </form>
+            </div>
+            <div id="posts-container" class="community-grid">
+                <!-- Bài đăng sẽ được thêm động bằng JavaScript -->
+            </div>
+        </section>
+
+        <section id="join-group" class="animate-on-scroll">
+            <h2>Tham Gia Nhóm Cộng Đồng</h2>
+            <p>Đăng ký để trở thành một phần của cộng đồng bảo vệ động vật, nhận thông tin về sự kiện và cơ hội tình nguyện!</p>
+            <form id="join-group-form" class="join-group-form">
+                <input type="text" id="join-name" placeholder="Họ và tên" required>
+                <input type="email" id="join-email" placeholder="Email" required>
+                <textarea id="join-reason" placeholder="Lý do muốn tham gia" required></textarea>
+                <button type="submit" class="cta-button">Tham Gia</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="animate-on-scroll">
+        <p>© 2025 Bảo Vệ Động Vật. Mọi quyền được bảo lưu.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Cuộn mượt đến section
+        document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Hiệu ứng chuyển trang
+        document.querySelectorAll('.page-transition-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                const transitionOverlay = document.querySelector('.page-transition');
+                transitionOverlay.classList.add('active');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+
+        // Hiệu ứng cuộn với Intersection Observer
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(element => observer.observe(element));
+
+        // Xử lý đăng bài
+        const postForm = document.getElementById('new-post-form');
+        const postsContainer = document.getElementById('posts-container');
+
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            postsContainer.innerHTML = '';
+            posts.forEach(post => {
+                const postElement = document.createElement('article');
+                postElement.classList.add('community-card', 'animate-on-scroll');
+                postElement.innerHTML = `
+                    <img src="${post.image || 'asset/image/placeholder.jpg'}" alt="${post.title}">
+                    <h3>${post.title}</h3>
+                    <p>${post.content.substring(0, 100)}...</p>
+                    <a href="#" class="learn-more" data-post-id="${post.id}">Xem Thêm</a>
+                    <div class="comments-section" id="comments-${post.id}">
+                        <h4>Bình Luận</h4>
+                        <div class="comments-list"></div>
+                        <form class="comment-form" data-post-id="${post.id}">
+                            <textarea placeholder="Viết bình luận..." required></textarea>
+                            <button type="submit" class="cta-button">Gửi</button>
+                        </form>
+                    </div>
+                `;
+                postsContainer.appendChild(postElement);
+                loadComments(post.id);
+            });
+        }
+
+        function loadComments(postId) {
+            const comments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
+            const commentsList = document.querySelector(`#comments-${postId} .comments-list`);
+            commentsList.innerHTML = '';
+            comments.forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `
+                    <p>${comment.content}</p>
+                    <small>${new Date(comment.timestamp).toLocaleString('vi-VN')}</small>
+                `;
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        postForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('post-title').value;
+            const content = document.getElementById('post-content').value;
+            const imageInput = document.getElementById('post-image');
+            let image = '';
+            if (imageInput.files[0]) {
+                image = URL.createObjectURL(imageInput.files[0]);
+            }
+            const post = {
+                id: Date.now(),
+                title,
+                content,
+                image,
+                timestamp: new Date().toISOString()
+            };
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.unshift(post);
+            localStorage.setItem('posts', JSON.stringify(posts));
+            postForm.reset();
+            loadPosts();
+        });
+
+        // Xử lý bình luận
+        postsContainer.addEventListener('submit', (e) => {
+            if (e.target.classList.contains('comment-form')) {
+                e.preventDefault();
+                const postId = e.target.getAttribute('data-post-id');
+                const content = e.target.querySelector('textarea').value;
+                const comment = {
+                    commentId: Date.now(),
+                    content,
+                    timestamp: new Date().toISOString()
+                };
+                const comments = JSON.parse(localStorage.getItem(`comments-${postId}`)) || [];
+                comments.push(comment);
+                localStorage.setItem(`comments-${postId}`, JSON.stringify(comments));
+                e.target.reset();
+                loadComments(postId);
+            }
+        });
+
+        // Xử lý nút "Xem Thêm"
+        postsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('learn-more')) {
+                e.preventDefault();
+                const postId = e.target.getAttribute('data-post-id');
+                const commentsSection = document.querySelector(`#comments-${postId}`);
+                commentsSection.style.display = commentsSection.style.display === 'block' ? 'none' : 'block';
+                e.target.textContent = commentsSection.style.display === 'block' ? 'Ẩn' : 'Xem Thêm';
+            }
+        });
+
+        // Xử lý form tham gia nhóm
+        const joinGroupForm = document.getElementById('join-group-form');
+        joinGroupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const member = {
+                name: document.getElementById('join-name').value,
+                email: document.getElementById('join-email').value,
+                reason: document.getElementById('join-reason').value,
+                timestamp: new Date().toISOString()
+            };
+            const members = JSON.parse(localStorage.getItem('community-members')) || [];
+            members.push(member);
+            localStorage.setItem('community-members', JSON.stringify(members));
+            joinGroupForm.reset();
+            alert('Cảm ơn bạn đã đăng ký tham gia cộng đồng!');
+        });
+
+        // Tải bài đăng khi trang được mở
+        loadPosts();
+    </script>
+</body>
+</html>

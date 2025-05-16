@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Bảo Vệ Động Vật</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lienhe.css">
+</head>
+<body>
+    <div class="page-transition"></div>
+    <a href="index.html" class="prev-btn page-transition-link">❮</a>
+    <video autoplay muted loop class="background-video">
+        <source src="https://cdn.pixabay.com/video/2023/11/12/188861-883827797_large.mp4" type="video/mp4">
+    </video>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="asset/image/logoanm.webp" alt="WLA" class="logo-img">
+                </a>
+                <b><h1 style="color: black;">WLA</h1></b>
+            </div>
+            <ul>
+                <li><a href="index.html" class="page-transition-link">Trang Chủ</a></li>
+                <li><a href="index.html#mission" class="scroll-link" data-target="mission">Về Chúng Tôi</a></li>
+                <li><a href="index.html#featured-animals" class="scroll-link" data-target="featured-animals">Động Vật</a></li>
+                <li><a href="community.html" class="page-transition-link">Cộng Đồng</a></li>
+                <li><a href="donate.html" class="page-transition-link">Quyên Góp</a></li>
+                <li><a href="contact.html" class="page-transition-link">Liên Hệ</a></li>
+            </ul>
+        </nav>
+        <div class="hero animate-on-scroll">
+            <h1>Liên Hệ Với Chúng Tôi</h1>
+            <p>Gặp gỡ đội ngũ của chúng tôi và cùng chung tay bảo vệ động vật hoang dã!</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="team" class="animate-on-scroll">
+            <h2>Đội Ngũ Của Chúng Tôi</h2>
+            <p>Chúng tôi là nhóm 4 sinh viên VKU, đam mê bảo vệ động vật và xây dựng cộng đồng ý nghĩa.</p>
+            <div class="team-grid">
+                <article class="team-card animate-on-scroll">
+                    <img src="asset/image/member1.jpg" alt="Bùi Trung Truyền">
+                    <h3>Bùi Trung Truyền</h3>
+                    <p>Trưởng Nhóm</p>
+                    <div class="team-details">
+                        <p><strong>Email:</strong> an.nguyen@vku.edu.vn</p>
+                        <p>Truyền là người khởi xướng dự án, dẫn dắt nhóm với niềm đam mê bảo tồn động vật hoang dã và kỹ năng lãnh đạo xuất sắc.</p>
+                    </div>
+                    <button class="learn-more">Xem Chi Tiết</button>
+                </article>
+                <article class="team-card animate-on-scroll">
+                    <img src="asset/image/member2.jpg" alt="Phan Quang Minh">
+                    <h3>Phan Quang Minh</h3>
+                    <p>Thành Viên</p>
+                    <div class="team-details">
+                        <p><strong>Email:</strong>minhpq.24ce@vku.udn.vn</p>
+                        <p>Minh là người thiết kế và phát triển trang web, đảm bảo trải nghiệm mượt mà và giao diện thân thiện với người dùng.</p>
+                    </div>
+                    <button class="learn-more">Xem Chi Tiết</button>
+                </article>
+                <article class="team-card animate-on-scroll">
+                    <img src="asset/image/Phuc.jpeg" alt="Hồ Chí Phúc">
+                    <h3>Hồ Chí Phúc</h3>
+                    <p>Thành Viên</p>
+                    <div class="team-details">
+                        <p><strong>Email:</strong>phuchc.24ceb@vku.udn.vn</p>
+                        <p>Phúc phụ trách xây dựng nội dung và chiến dịch truyền thông, lan tỏa thông điệp bảo vệ động vật đến cộng đồng.</p>
+                    </div>
+                    <button class="learn-more">Xem Chi Tiết</button>
+                </article>
+                <article class="team-card animate-on-scroll">
+                    <img src="asset/image/member4.jpg" alt="Vũ Đình Quân">
+                    <h3>Vũ Đình Quân</h3>
+                    <p>Thành Viên</p>
+                    <div class="team-details">
+                        <p><strong>Email:</strong> dat.pham@vku.edu.vn</p>
+                        <p>Quân thu thập và phân tích dữ liệu về các loài động vật, cung cấp thông tin khoa học cho các chiến dịch bảo tồn.</p>
+                    </div>
+                    <button class="learn-more">Xem Chi Tiết</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="animate-on-scroll">
+        <p>© 2025 Bảo Vệ Động Vật. Mọi quyền được bảo lưu.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Cuộn mượt đến section khi nhấn nút scroll-link
+        document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    window.location.href = link.getAttribute('href');
+                }
+            });
+        });
+
+        // Toggle nội dung chi tiết cho "Xem Chi Tiết"
+        document.querySelectorAll('.learn-more').forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.team-card');
+                const details = card.querySelector('.team-details');
+                if (details) {
+                    details.classList.toggle('show');
+                    button.textContent = details.classList.contains('show') ? 'Ẩn Chi Tiết' : 'Xem Chi Tiết';
+                }
+            });
+        });
+
+        // Hiệu ứng chuyển trang lướt
+        document.querySelectorAll('.page-transition-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                const transitionOverlay = document.querySelector('.page-transition');
+                const isReverse = link.classList.contains('prev-btn');
+                transitionOverlay.classList.add(isReverse ? 'reverse' : 'active');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+
+        // Hiệu ứng cuộn với Intersection Observer
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(element => observer.observe(element));
+    </script>
+</body>
+</html>

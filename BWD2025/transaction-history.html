@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Sử Giao Dịch - Bảo Vệ Động Vật</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/transaction-history.css">
+</head>
+<body>
+    <video autoplay muted loop class="background-video">
+        <source src="https://cdn.pixabay.com/video/2023/11/12/188861-883827797_large.mp4" type="video/mp4">
+    </video>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="asset/image/logoanm.webp" alt="WLA" class="logo-img">
+                </a>
+                <b><h1 style="color: black;">WLA</h1></b>
+            </div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.html#mission">Về Chúng Tôi</a></li>
+                <li><a href="index.html#featured-animals">Động Vật</a></li>
+                <li><a href="index.html">Tin Tức</a></li>
+                <li><a href="donate.html">Quyên Góp</a></li>
+                <li><a href="transaction-history.html">Lịch Sử Giao Dịch</a></li>
+                <li><a href="lienhe.html">Liên Hệ</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Lịch Sử Giao Dịch</h1>
+            <p>Xem lại các khoản quyên góp bạn đã thực hiện để bảo vệ động vật hoang dã.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="transaction-history" class="transaction-section">
+            <h2>Lịch Sử Giao Dịch</h2>
+            <table class="transaction-history">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Số Tiền (VND)</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-table-body">
+                    <!-- Giao dịch sẽ được hiển thị bằng JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Bảo Vệ Động Vật. Mọi quyền được bảo lưu.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Cập nhật bảng giao dịch
+        function updateTransactionTable() {
+            const tableBody = document.getElementById('transaction-table-body');
+            tableBody.innerHTML = '';
+            const transactions = JSON.parse(localStorage.getItem('donations')) || [];
+
+            if (transactions.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="2" style="text-align: center;">Chưa có giao dịch nào.</td>`;
+                tableBody.appendChild(row);
+                return;
+            }
+
+            transactions.forEach(transaction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${transaction.date}</td>
+                    <td>${transaction.amount}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Tải giao dịch khi trang được tải
+        window.addEventListener('load', updateTransactionTable);
+    </script>
+</body>
+</html>

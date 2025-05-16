@@ -1,0 +1,108 @@
+/* Common font styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    color: #1b2e20;
+}
+
+h1 {
+    font-size: 3.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+a, button, .cta-button, .learn-more {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Responsive font sizes */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+    .hero h1 {
+        font-size: 3.3rem;
+    }
+    h2 {
+        font-size: 2.6rem;
+    }
+    h3 {
+        font-size: 1.1rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    .animal-card p, .news-card p, .team-card p {
+        font-size: 0.7rem;
+    }
+    .cta-button, .learn-more {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 2.4rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.85rem;
+    }
+    .animal-card p, .news-card p, .team-card p {
+        font-size: 0.65rem;
+    }
+    .cta-button, .learn-more {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.4rem;
+    }
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    h3 {
+        font-size: 0.9rem;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+    .animal-card p, .news-card p, .team-card p {
+        font-size: 0.6rem;
+    }
+    .cta-button, .learn-more {
+        font-size: 0.8rem;
+    }
+}
