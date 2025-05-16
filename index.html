@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảo Vệ Động Vật</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-transition"></div>
+    <a href="page2.html" class="next-btn page-transition-link">❯</a>
+    <video autoplay muted loop class="background-video">
+        <source src="https://cdn.pixabay.com/video/2023/11/12/188861-883827797_large.mp4" type="video/mp4">
+    </video>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="asset/image/logoanm.webp" alt="WLA" class="logo-img">
+                </a>
+                <b><h1 style="color: black;">WLA</h1></b>
+            </div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="#mission" class="scroll-link" data-target="mission">Về Chúng Tôi</a></li>
+                <li><a href="#featured-animals" class="scroll-link" data-target="featured-animals">Động Vật</a></li>
+                <li><a href="congdong.html" class="page-transition-link">Cộng Đồng</a></li>
+                <li><a href="donate.html">Quyên Góp</a></li>
+                <li><a href="lienhe.html" class="page-transition-link">Liên Hệ</a></li>
+            </ul>
+        </nav>
+        <div class="hero animate-on-scroll">
+            <h1>Cùng Chung Tay Bảo Vệ Động Vật</h1>
+            <p>Tham gia hành trình bảo tồn các loài động vật quý hiếm và xây dựng một thế giới tốt đẹp hơn.</p>
+            <a href="donate.html" class="cta-button" id="donate-now">Quyên Góp Ngay</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="blog" class="animate-on-scroll">
+            <h2>Tin Tức Mới Nhất</h2>
+            <div class="bao-iframe" id="news-container">
+                <!-- Tin tức từ news.json -->
+            </div>
+            <h3>Tin Tức Động Vật Hoang Dã Từ BaoTinTuc</h3>
+            <div class="bao-iframe animate-on-scroll">
+                <iframe src="https://baotintuc.vn/long-form/emagazine/dong-vat-hoang-da-ben-bo-vuc-tuyet-chung-20211210222110940.htm" title="Tin tức động vật hoang dã từ VnExpress" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="source-note">Nguồn: <a href="https://baotintuc.vn/long-form/emagazine/dong-vat-hoang-da-ben-bo-vuc-tuyet-chung-20211210222110940.htm" target="_blank">baotintuc.vn</a></p>
+        </section>
+        <section id="wildlife-trade-crisis" class="animate-on-scroll">
+    <h2>Thực Trạng Nạn Săn Bắn Động Vật Hoang Dã</h2>
+    <p>Hàng ngày, hàng ngàn loài động vật hoang dã đang bị đe dọa bởi nạn săn bắn và buôn bán trái phép. Nhấp vào liên kết dưới đây để xem video trên YouTube về vấn đề này.</p>
+    <div class="video-wrapper animate-on-scroll">
+        <a href="https://youtu.be/Cs0O0YC8vh0?si=9A0OO2nrZ9BFQYss" target="_blank" class="video-link">Xem video trên YouTube</a>
+    </div>
+</section>
+        <section id="mission" class="animate-on-scroll">
+            <h2>Sứ Mệnh Của Chúng Tôi</h2>
+            <p>Chúng tôi là nhóm 4 sinh viên VKU với tình yêu thương động vật đã xây nên trang web này để có thể góp ích cho xã hội và chúng tôi mang đến các thông tin và hoạt động cần thiết cho việc bảo vệ động vật.</p>
+            <img src="asset/image/avt.jpg" alt="" class="animate-on-scroll"> <br>
+            <a href="lienhe.html" class="cta-button animate-on-scroll page-transition-link">Chi tiết liên hệ </a>
+        </section>
+        <section id="featured-animals" class="animate-on-scroll">
+            <h2>Động Vật Cần Giúp Đỡ</h2>
+            <div class="animal-grid">
+                <article class="animal-card animate-on-scroll">
+                    <img src="asset/image/botot.jpg" alt="bo tot">
+                    <h3>Bò tót</h3>
+                    <p>Loài bò tót đang bị đe dọa bởi mất môi trường sống và săn bắn. Hãy giúp chúng tôi bảo vệ chúng!</p>
+                    <div class="animal-details">
+                        <p>Bò tót (Bos gaurus) là loài bò lớn nhất thế giới, sống chủ yếu ở các khu rừng nhiệt đới và đồng cỏ tại Đông Nam Á, trong đó có Việt Nam. Chúng có thể nặng tới 1.500 kg và cao 2,2 m. Hiện nay, bò tót đang bị đe dọa nghiêm trọng do nạn săn bắn và phá rừng, khiến số lượng giảm mạnh. Theo Sách Đỏ Việt Nam, bò tót được xếp vào nhóm nguy cấp, cần được bảo vệ khẩn cấp.</p>
+                    </div>
+                    <a href="#" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+                <article class="animal-card animate-on-scroll">
+                    <img src="asset/image/saola.webp" alt="sao la">
+                    <h3>Sao la</h3>
+                    <p>Sao la (Pseudoryx nghetinhensis) - một trong những loài thú hiếm nhất thế giới,</p>
+                    <div class="animal-details">
+                        <p>sống ở vùng núi rừng hẻo lánh dãy Trường Sơn tại Việt Nam và Lào. Kích thước cỡ lớn, thân dài tới 1,5m, trọng lượng 80 - 120kg. Mặt có những vạch trắng hoặc đen nhạt, phần lưng vạch trắng phân cách với chân màu đen nhạt. Bộ lông mềm mượt có xoáy ở giữa mũi và cổ. Sừng thẳng, nhẵn bóng. Loài này gặp nguy cơ tuyệt chủng cao, chỉ còn khoảng 50 - 60 cá thể được nuôi dưỡng tại các vườn quốc gia. Việc phát hiện sao la lần đầu tiên năm 1992 là sự kiện quan trọng về động vật trên thế giới. Loài thú quý hiếm này đang đối mặt với nguy cơ mất môi trường sống và bị săn bắt trộm.</p>
+                    </div>
+                    <a href="#" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+                <article class="animal-card animate-on-scroll">
+                    <img src="asset/image/tiger-3424791_1280.jpg" alt="Hổ">
+                    <h3>Hổ</h3>
+                    <p>Kích cỡ lớn nhất trong Họ Mèo Felidae có thể nặng 200 - 250kg. Nền lông vàng hoặc vàng sáng, phần bụng trắng. Mặt và dọc thân có nhiều sọc đen.</p>
+                    <div class="animal-details">
+                        <p>Nhiều chuyên gia cho rằng loài hổ đã biến mất, không còn ghi nhận mới trong tự nhiên. Việc xuất hiện một con hổ ở Việt Nam trở nên hiếm hoi, và nguy cơ tuyệt chủng ngày càng cao.</p>
+                    </div>
+                    <a href="#" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+                <article class="animal-card animate-on-scroll">
+                    <img src="asset/image/voocmuihech.jpg" alt="Voocmuihech">
+                    <h3>Voọc mũi hếch</h3>
+                    <p>Voọc mũi hếch, một loài động vật đặc biệt chỉ tồn tại ở một số tỉnh miền núi phía Bắc Việt Nam, đang đối mặt với nguy cơ tuyệt chủng do săn bắt quá mức và phá rừng.</p>
+                    <div class="animal-details">
+                        <p>Có khoảng 80 cá thể được phát hiện bởi nhóm FFI (Tổ chức Bảo tồn động thực vật quốc tế), và ước tính còn khoảng 110 cá thể đang sinh sống ở Việt Nam. Voọc mũi hếch có bộ lông màu nâu đen, lông trắng quanh mặt và đỉnh đầu, tạo nên vẻ độc đáo. Đuôi dài và xù. Voọc mũi hếch là một trong những linh trưởng quý hiếm nhất trên thế giới, chỉ còn khoảng 200 cá thể trên toàn cầu, với tỉnh Hà Giang đóng góp khoảng 180 cá thể. Dự án bảo tồn voọc mũi hếch đã được triển khai để ngăn chặn nguy cơ tuyệt chủng của loài này.</p>
+                    </div>
+                    <a href="listanimal.html" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+            </div>
+            <a href="listanimal.html" class="cta-button animate-on-scroll" id="view-more">Xem Thêm</a>
+        </section>
+
+        <section id="community" class="animate-on-scroll">
+            <h2>Cộng Đồng Bảo Vệ Động Vật</h2>
+            <p>Tham gia cộng đồng của chúng tôi để cùng nhau lan tỏa tình yêu thương động vật thông qua các chiến dịch tình nguyện, sự kiện gây quỹ, và những câu chuyện truyền cảm hứng.</p>
+            <div class="community-grid">
+                <article class="community-card animate-on-scroll">
+                    <img src="asset/image/community1.jpg" alt="Chiến dịch tình nguyện">
+                    <h3>Chiến Dịch Tình Nguyện Tại Vườn Quốc Gia</h3>
+                    <p>Hơn 200 tình nguyện viên đã tham gia dọn dẹp và bảo vệ môi trường sống cho động vật tại Vườn Quốc Gia Cúc Phương.</p>
+                    <a href="community.html" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+                <article class="community-card animate-on-scroll">
+                    <img src="asset/image/community2.jpg" alt="Sự kiện gây quỹ">
+                    <h3>Sự Kiện Gây Quỹ Bảo Tồn Sao La</h3>
+                    <p>Sự kiện chạy bộ gây quỹ tại Hà Nội đã thu hút hơn 500 người tham gia, quyên góp được 300 triệu đồng cho bảo tồn sao la.</p>
+                    <a href="community.html" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+                <article class="community-card animate-on-scroll">
+                    <img src="asset/image/community3.jpg" alt="Câu chuyện thành công">
+                    <h3>Câu Chuyện Thành Công: Cứu Hộ Voọc</h3>
+                    <p>Một chú voọc mũi hếch bị thương đã được cứu hộ, chữa trị và thả về tự nhiên nhờ sự hỗ trợ của cộng đồng.</p>
+                    <a href="community.html" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+                <article class="community-card animate-on-scroll">
+                    <img src="asset/image/community4.jpg" alt="Hội thảo giáo dục">
+                    <h3>Hội Thảo Giáo Dục Về Bảo Vệ Động Vật</h3>
+                    <p>Hội thảo tại TP.HCM đã thu hút hơn 300 học sinh, nâng cao nhận thức về bảo vệ động vật hoang dã.</p>
+                    <a href="community.html" class="learn-more">Tìm Hiểu Thêm</a>
+                </article>
+            </div>
+            <a href="community.html" class="cta-button animate-on-scroll page-transition-link">Tham Gia Cộng Đồng</a>
+        </section>
+
+        <section id="statistics" class="animate-on-scroll">
+            <h2>Số Liệu Thống Kê</h2>
+            <div class="statistics-list">
+                <div class="stat-item animate-on-scroll">
+                    <h3>1,200+</h3>
+                    <p>Số loài động vật hoang dã tại Việt Nam đang bị đe dọa, theo Sách Đỏ Việt Nam.</p>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <h3>50%</h3>
+                    <p>Tỷ lệ môi trường sống của động vật hoang dã bị mất do phá rừng và đô thị hóa.</p>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <h3>10,000+</h3>
+                    <p>Số cá thể động vật được cứu hộ và bảo vệ bởi các tổ chức trong 5 năm qua.</p>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <h3>30+</h3>
+                    <p>Số dự án bảo tồn động vật hoang dã đang được triển khai trên cả nước.</p>
+                </div>
+            </div>
+            <a href="donate.html" class="cta-button animate-on-scroll">Hỗ Trợ Ngay</a>
+        </section>
+
+        <section id="call-to-action" class="animate-on-scroll">
+            <h2>Tham Gia Ngay Hôm Nay</h2>
+            <p>Hỗ trợ chúng tôi bằng cách quyên góp, nhận nuôi, hoặc trở thành tình nguyện viên để tạo ra sự khác biệt.</p>
+            <a href="congdong.html" class="cta-button animate-on-scroll" id="join-now">Tham Gia</a>
+        </section>
+    </main>
+
+    <footer class="animate-on-scroll">
+        <p>© 2025 Bảo Vệ Động Vật. Mọi quyền được bảo lưu.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Cuộn mượt đến section khi nhấn nút scroll-link
+        document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Sự kiện cho nút "Quyên Góp Ngay"
+        document.getElementById('donate-now').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'donate.html';
+        });
+
+        // Sự kiện cho nút "Xem Thêm"
+        document.getElementById('view-more').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'listanimal.html';
+        });
+
+        // Sự kiện cho nút "Tham Gia"
+        document.getElementById('join-now').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'congdong.html';
+        });
+
+        // Toggle nội dung chi tiết cho "Tìm Hiểu Thêm"
+        document.querySelectorAll('.learn-more').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const card = button.closest('.animal-card, .community-card');
+                const details = card.querySelector('.animal-details');
+                if (details) {
+                    details.classList.toggle('show');
+                    button.textContent = details.classList.contains('show') ? 'Ẩn Thông Tin' : 'Tìm Hiểu Thêm';
+                } else {
+                    window.location.href = button.getAttribute('href');
+                }
+            });
+        });
+
+        // Hiệu ứng chuyển trang lướt từ phải sang trái
+        document.querySelectorAll('.page-transition-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                const transitionOverlay = document.querySelector('.page-transition');
+                transitionOverlay.classList.add('active');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+
+        // Hiệu ứng cuộn với Intersection Observer
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(element => observer.observe(element));
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93df5073bedfafec',t:'MTc0Njk0MTc0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

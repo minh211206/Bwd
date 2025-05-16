@@ -1,0 +1,771 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    color: #1b2e20;
+    background: #f8f9fa;
+    overflow-x: hidden;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7;
+    filter: brightness(0.9);
+}
+
+/* Page transition */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1b5e20;
+    transform: translateX(100%);
+    z-index: 1000;
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+.page-transition.active {
+    transform: translateX(0);
+}
+
+/* Header */
+header {
+    color: white;
+    text-align: center;
+    padding: 0 20px 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #1b5e20, #4caf50);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.2) rotate(5deg);
+    filter: brightness(1.2);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: #ffca28;
+    color: #1b5e20;
+    transform: translateY(-2px);
+}
+
+/* Hero section */
+.hero {
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 30%);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CTA button */
+.cta-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #ffca28, #f57c00);
+    color: #1b5e20;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.cta-button.visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #f57c00, #ffca28);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Blog section */
+#blog,
+#community-posts,
+#join-group,
+#wildlife-trade-crisis,
+#mission,
+#community,
+#statistics,
+#call-to-action,
+#featured-animals {
+    padding: 70px 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    margin: 40px auto;
+    max-width: 1200px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#featured-animals {
+    padding: 60px 30px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+#blog.visible,
+#community-posts.visible,
+#join-group.visible,
+#wildlife-trade-crisis.visible,
+#mission.visible,
+#community.visible,
+#statistics.visible,
+#call-to-action.visible,
+#featured-animals.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#blog h2,
+#wildlife-trade-crisis h2,
+#mission h2,
+#call-to-action h2,
+#community h2,
+#statistics h2,
+#community-posts h2,
+#join-group h2 {
+    font-size: 3rem;
+    color: #1b5e20;
+    margin-bottom: 35px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.bao-iframe {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.bao-iframe iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.content-grid,
+.community-grid,
+.animal-grid,
+.statistics-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.animal-card,
+.content-card,
+.community-card,
+.stat-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s, box-shadow 0.4s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stat-item {
+    padding: 20px;
+}
+
+.animal-card.visible,
+.content-card.visible,
+.community-card.visible,
+.stat-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animal-card:hover,
+.content-card:hover,
+.community-card:hover,
+.stat-item:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.animal-card img,
+.content-card img,
+.content-card .video-wrapper iframe,
+.community-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s;
+}
+
+.animal-card img:hover,
+.content-card img:hover,
+.content-card .video-wrapper iframe:hover,
+.community-card img:hover {
+    transform: scale(1.05);
+}
+
+.animal-card h3,
+.content-card h3,
+.community-card h3,
+.stat-item h3 {
+    font-size: 1.2rem;
+    color: #1b5e20;
+    margin: 10px 0;
+    font-weight: 700;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.animal-card p,
+.content-card p,
+.community-card p,
+.stat-item p {
+    font-size: 0.75rem;
+    color: #1b2e20;
+    line-height: 1.6;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item p {
+    font-size: 1rem;
+}
+
+.animal-details {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(232, 245, 233, 0.9);
+    border-radius: 6px;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.animal-details.show {
+    display: block;
+    max-height: 600px;
+    opacity: 1;
+}
+
+.learn-more {
+    color: #1b5e20;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 2px solid #1b5e20;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.learn-more:hover {
+    background: #ffca28;
+    color: #1b5e20;
+    transform: translateY(-2px);
+}
+
+/* Form styles */
+.post-form,
+.join-group-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    margin: 20px auto;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.post-form.visible,
+.join-group-form.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.post-form h3,
+.join-group-form h3 {
+    font-size: 1.5rem;
+    color: #1b5e20;
+    margin-bottom: 15px;
+}
+
+.post-form input,
+.post-form textarea,
+.join-group-form input,
+.join-group-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #1b5e20;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.post-form textarea,
+.join-group-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.post-form button,
+.join-group-form button {
+    width: 100%;
+}
+
+/* Comments section */
+.comments-section {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(232, 245, 233, 0.9);
+    border-radius: 6px;
+}
+
+.comments-section h4 {
+    font-size: 1.2rem;
+    color: #1b5e20;
+    margin-bottom: 10px;
+}
+
+.comment {
+    padding: 10px;
+    border-bottom: 1px solid #e8f5e9;
+}
+
+.comment p {
+    font-size: 0.9rem;
+    color: #1b2e20;
+}
+
+.comment small {
+    font-size: 0.7rem;
+    color: #4caf50;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #1b5e20;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    height: 60px;
+}
+
+.comment-form button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #1b5e20, #4caf50);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-links a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: #ffca28;
+    transform: translateY(-2px);
+}
+
+/* Next button */
+.next-btn {
+    background-color: whitesmoke;
+    color: black;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Video link and thumbnail */
+.video-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.video-link:hover {
+    background-color: #cc0000;
+}
+
+.video-thumbnail {
+    width: 640px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s;
+}
+
+.video-thumbnail:hover {
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .logo-img {
+        height: 40px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        margin-top: 15px;
+    }
+    nav ul li a {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+    .animal-grid,
+    .community-grid,
+    .statistics-list,
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero h1 {
+        font-size: 3.3rem;
+    }
+    .hero p {
+        font-size: 1.4rem;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 2.6rem;
+    }
+    h3 {
+        font-size: 1.1rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    .animal-card p,
+    .content-card p,
+    .community-card p {
+        font-size: 0.7rem;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+    .learn-more {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    .animal-card img,
+    .content-card img,
+    .content-card .video-wrapper iframe,
+    .community-card img {
+        height: 120px;
+    }
+    .stat-item h3 {
+        font-size: 1.6rem;
+    }
+    .stat-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 20px;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+    .hero p {
+        font-size: 1.3rem;
+    }
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2.4rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.85rem;
+    }
+    .animal-card p,
+    .content-card p,
+    .community-card p {
+        font-size: 0.65rem;
+    }
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .learn-more {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+    #blog,
+    #wildlife-trade-crisis,
+    #mission,
+    #community,
+    #statistics,
+    #call-to-action,
+    #community-posts,
+    #join-group {
+        padding: 70px 25px;
+        margin: 50px 15px;
+    }
+    #featured-animals {
+        padding: 50px 20px;
+        margin: 30px 15px;
+    }
+    .animal-grid,
+    .community-grid,
+    .statistics-list,
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    .animal-card img,
+    .content-card img,
+    .content-card .video-wrapper iframe,
+    .community-card img {
+        height: 100px;
+    }
+    .vnexpress-iframe iframe {
+        height: 450px;
+        width: 500px;
+    }
+    .stat-item h3 {
+        font-size: 1.4rem;
+    }
+    .stat-item p {
+        font-size: 0.85rem;
+    }
+    nav {
+        padding: 10px 15px;
+    }
+    .logo-img {
+        height: 35px;
+    }
+    nav ul li a {
+        font-size: 0.95rem;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    h1 {
+        font-size: 2.4rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    h3 {
+        font-size: 0.9rem;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+    .animal-card p,
+    .content-card p,
+    .community-card p {
+        font-size: 0.6rem;
+    }
+    .cta-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    .learn-more {
+        font-size: 0.65rem;
+        padding: 2px 5px;
+    }
+    #blog h2,
+    #wildlife-trade-crisis h2,
+    #mission h2,
+    #community h2,
+    #statistics h2,
+    #call-to-action h2,
+    #community-posts h2,
+    #join-group h2 {
+        font-size: 2.6rem;
+    }
+    .animal-card img,
+    .content-card img,
+    .content-card .video-wrapper iframe,
+    .community-card img {
+        height: 80px;
+    }
+    .bao-iframe iframe {
+        width: 100%;
+        height: 800px;
+    }
+    .stat-item h3 {
+        font-size: 1.2rem;
+    }
+    .stat-item p {
+        font-size: 0.8rem;
+    }
+}
